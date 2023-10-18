@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Recommendation</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Book Recommendation System</h1>
+    <form method="POST" action="/recommend">
+        <label for="book_name">Enter a book name:</label>
+        <input type="text" name="book_name" required>
+        <button type="submit">Recommend</button>
+    </form>
+    <ul>
+        {% if recommendations %}
+        <h2>Recommendations:</h2>
+        <ul>
+            {% for book in recommendations %}
+            <li>{{ book }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </ul>
+</body>
+</html>
